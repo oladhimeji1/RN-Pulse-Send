@@ -28,7 +28,7 @@ type Props = {
   duration?: number;
 };
 
-export function SplashScreen({ onFinish, duration = 20000 }: Props) {
+export function SplashScreen({ onFinish, duration = 10000 }: Props) {
   const { width: winW, height: winH } = useWindowDimensions();
   const [exiting, setExiting] = useState(false);
 
@@ -240,11 +240,6 @@ export function SplashScreen({ onFinish, duration = 20000 }: Props) {
 
           {/* Catchy Write-Up Hero */}
           <Animated.View style={[styles.copyWrap, textStyle]}>
-            {/* <View style={styles.kickerPill}>
-              <View style={styles.kickerDot} />
-              <Text style={styles.kickerText}>VELOCITY PROTOCOL</Text>
-            </View> */}
-
             <View style={styles.brandRow}>
               <Text style={styles.brandText}>PULSE</Text>
               <Text style={[styles.brandText, { color: colors.accent }]}>
@@ -347,7 +342,7 @@ const styles = StyleSheet.create({
   logoCard: {
     width: 96,
     height: 96,
-    borderRadius: 30,
+    borderRadius: 60,
     backgroundColor: colors.surface,
     borderWidth: 1.5,
     borderColor: "rgba(200, 246, 61, 0.4)",
