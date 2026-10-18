@@ -23,7 +23,17 @@ const me = { initials: "O", grad: ["#C8F63D", "#3DDC97"] as [string, string] };
 
 export default function Home() {
   const insets = useSafeAreaInsets();
-  const { isAuthenticated, user, logout, balance, txs, undo, undoSend, topUp, reset } = useStore();
+  const {
+    isAuthenticated,
+    user,
+    logout,
+    balance,
+    txs,
+    undo,
+    undoSend,
+    topUp,
+    reset,
+  } = useStore();
   const [splashFinished, setSplashFinished] = useState(false);
   const [selectedTx, setSelectedTx] = useState<Tx | null>(null);
   const [showAll, setShowAll] = useState(false);
@@ -45,7 +55,10 @@ export default function Home() {
   const displayedTxs = showAll ? txs : txs.slice(0, 8);
 
   return (
-    <Animated.View entering={FadeIn.duration(400)} style={{ flex: 1, backgroundColor: colors.bg }}>
+    <Animated.View
+      entering={FadeIn.duration(400)}
+      style={{ flex: 1, backgroundColor: colors.bg }}
+    >
       <ScrollView
         contentContainerStyle={{
           paddingTop: insets.top + 12,
@@ -89,7 +102,7 @@ export default function Home() {
         </View>
 
         <View style={styles.balanceBlock}>
-          <Text style={styles.label}>Total balance</Text>
+          <Text style={styles.label}>Available balance</Text>
           <AnimatedBalance value={balance} />
           <View style={styles.actions}>
             <PressableScale
@@ -145,7 +158,9 @@ export default function Home() {
               }}
               scaleTo={0.92}
             >
-              <Text style={styles.link}>{showAll ? "Show less" : "See all"}</Text>
+              <Text style={styles.link}>
+                {showAll ? "Show less" : "See all"}
+              </Text>
             </PressableScale>
           )}
         </View>
